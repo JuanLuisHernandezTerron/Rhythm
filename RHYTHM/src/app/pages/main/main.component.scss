@@ -1,6 +1,103 @@
-.rhythm{
-    min-height: 80vh;
-    &-inicio{
-        background-color: #f1da9adb;
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&family=Hanken+Grotesk:wght@100&family=Permanent+Marker&family=Righteous&display=swap');
+.rhythm {
+  min-height: 80vh;
+
+  &-inicio {
+    background-color: #f1da9adb;
+    min-height: 70vh;
+  }
+
+  &-slide {
+    min-height: 20vw;
+    background-image: url('./../../../assets/imagenes/monaco_-_31663-_Original_.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    &-Omega{
+      font-family: 'Asap Condensed', sans-serif;
+      color: white;
+      font-size: 120px;
     }
+
+    &-titulo{
+      font-family: 'Asap Condensed', sans-serif;
+      font-size: 50px;
+      color: white;
+    }
+  }
+
+  &-quevedo {
+    background-image: url('./../../../assets/imagenes/quevedopng.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  &-titulo {
+    background-color: black;
+    color: #f1da9adb;
+    font-size: 65px;
+  }
+
+  &-boton {
+    background-color: #f1da9adb;
+    border: 3px solid black;
+    font-size: 18px;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &-logoAlbum {
+    border-radius: 10px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+}
+
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+      display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+  
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+  
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+transform: translateX(0);
 }
