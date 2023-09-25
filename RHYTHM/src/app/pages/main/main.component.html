@@ -16,85 +16,19 @@
     </div>
     <div class="row rhythm-slide ">
         <div class="text-center d-flex justify-content-around align-items-center">
-            <h1 class="rhythm-slide-Omega">Omega <br>el<br>'Fuerte'</h1>
+            <h1 class="rhythm-slide-Omega ms-1">Omega <br>el<br>'Fuerte'</h1>
             <div class="w-50 container text-center my-3">
-                <h2 class="rhythm-slide-titulo text-center mb-5">¿Por qué élegir OMEGA?</h2>
+                <h2 class="rhythm-slide-titulo text-center mb-5">¿Por qué elegir OMEGA?</h2>
                 <div class="row mx-auto my-auto justify-content-center">
-                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <!--A partir de aqui-->
-                            <div class="carousel-item active">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400/31f?text=1" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 1</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400/e66?text=2" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 2</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400/7d2?text=3" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 3</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400?te  xt=4" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 4</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400/aba?text=5" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 5</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="//via.placeholder.com/500x400/fc0?text=6" class="img-fluid">
-                                        </div>
-                                        <div class="card-img-overlay">Slide 6</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA AQUÍ-->
+                    <div class="carrusel">
+                        <div class="elemento" *ngFor="let informacion of this.infoOmega">
+                            <a href="{{informacion.data.uri}}"><img class="rhythm-slide-album" src="{{informacion.data.albumOfTrack.coverArt.sources[0].url}}"/></a>
                         </div>
-                        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </a>
-                        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
                     </div>
                 </div>
             </div>
-            <img src="./../../../assets/imagenes/artworks-fUAjJwMNdYwfWLeS-7HQriA-t500x500-removebg-preview.png" class="img-fluid w-25" alt="Omega el Fuerte">
+            <img src="./../../../assets/imagenes/artworks-fUAjJwMNdYwfWLeS-7HQriA-t500x500-removebg-preview.png"
+                class="img-fluid w-25" alt="Omega el Fuerte">
         </div>
     </div>
 </div>

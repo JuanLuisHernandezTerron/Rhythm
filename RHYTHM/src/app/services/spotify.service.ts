@@ -11,7 +11,9 @@ export class SpotifyService implements OnInit{
 
   constructor(private http:HttpClient) { 
     this.PetitionInfoQuevedo();
+    this.PetitionInfoOmega();
   }
+
   ngOnInit(): void {
   }
 
@@ -39,7 +41,6 @@ export class SpotifyService implements OnInit{
      let params = new HttpParams().set('q','Quevedo')
      params.append('type','multi')
      return this.http.get<any>('https://spotify23.p.rapidapi.com/search/',{headers:headers,params:params}).subscribe(data=>{
-     console.log(data)
      this.setInfoQuevedo(data);
      });
   }
@@ -49,11 +50,10 @@ export class SpotifyService implements OnInit{
       'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       'x-rapidapi-key': '50af629ee4msh66491fbfe8f61bep1e86efjsn74473a2cfa62'
     })
-    let params = new HttpParams().set('q','Omega El Fuerte')
+    let params = new HttpParams().set('q','Omega Fuerte')
     params.append('type','multi')
     return this.http.get<any>('https://spotify23.p.rapidapi.com/search/',{headers:headers,params:params}).subscribe(data=>{
-    console.log(data)
-    this.setInfoQuevedo(data);
+    this.setInfoOmega(data);
     });
   }
 }

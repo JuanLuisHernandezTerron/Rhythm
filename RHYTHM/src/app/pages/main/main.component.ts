@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { SpotifyService } from 'src/app/services/spotify.service';
+
 
 @Component({
   selector: 'app-main',
@@ -13,33 +15,25 @@ export class MainComponent implements OnInit {
   infoQuevedo: any;
   infoQuevedoMain: any;
   imgThisQuevedo = 'https://seed-mix-image.spotifycdn.com/v6/img/artist/52iwsT98xCoGgiGntTiR7K/en/default';
-
+  infoOmega: any;
+  arrainfoOmega: any[] = [];
 
   ngOnInit(): void {
     this.spotifyService.getInfoQuevedo$.subscribe(data => {
       this.infoQuevedo = data;
-      // this.infoQuevedoAlbum()
+      this.infoQuevedoAlbum()
     })
 
-    this.carousel()
+    this.spotifyService.getInfoOmega$.subscribe(data => {
+      this.infoOmega = data;
+      console.log(data);
+      this.infoOmegaMain();
+    })
   }
 
-  carousel(){
-    let items = document.querySelectorAll('.carousel .carousel-item')
-
-    items.forEach((el) => {
-        const minPerSlide = 4
-        let next = el.nextElementSibling
-        for (var i=1; i<minPerSlide; i++) {
-            if (!next) {
-                // wrap carousel by using first child
-              next = items[0]
-            }
-            let cloneChild = next.cloneNode(true)
-            el.appendChild(cloneChild.childNodes[0])
-            next = next.nextElementSibling
-        }
-    })
+  infoOmegaMain(){
+    this.infoOmega = this.infoOmega.tracks?.items.filter((x: any)=>x.data.artists.items.filter((x:any)=>x.profile.name=='Omega'))    
+    console.log(this.infoOmega);    
   }
 
   infoQuevedoAlbum() {
