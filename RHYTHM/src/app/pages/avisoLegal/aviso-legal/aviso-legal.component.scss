@@ -1,0 +1,18 @@
+.rhythm{
+    &-img{
+        width: 10%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    font: inherit;
+    &:hover{
+        color: rgb(163, 160, 160);
+    }
+  }

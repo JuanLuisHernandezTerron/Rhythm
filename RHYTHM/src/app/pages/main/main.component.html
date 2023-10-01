@@ -5,30 +5,46 @@
                 <span class="rhythm-titulo">NEW</span>
                 <span class="rhythm-titulo d-block">ALBUM</span>
             </div>
-            <img src="{{infoQuevedoMain[0]?.data?.images?.items[0]?.sources[0]?.url}}" class="w-50 rhythm-logoAlbum"
-                alt="albumquevedo">
-            <button class="mx-auto p-3 text-center rhythm-boton"><a [href]="infoQuevedoMain[0]?.data.uri">ESCUCHAR
+            <img src="{{infoQuevedoMain[0]?.images[0]?.url}}" class="w-50 rhythm-logoAlbum" alt="albumquevedo">
+            <button class="mx-auto p-3 text-center rhythm-boton"><a [href]="this.infoQuevedoMain[0]?.uri">ESCUCHAR
                     YA!</a></button>
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center mt-2 rhythm-quevedo">
 
         </div>
     </div>
-    <div class="row rhythm-slide ">
+    <div class="row rhythm-slide">
         <div class="text-center d-flex justify-content-around align-items-center">
-            <h1 class="rhythm-slide-Omega ms-1">Omega <br>el<br>'Fuerte'</h1>
+            <h1 class="rhythm-slide-Omega ms-5">Omega <br>el<br>'Fuerte'</h1>
             <div class="w-50 container text-center my-3">
                 <h2 class="rhythm-slide-titulo text-center mb-5">¿Por qué elegir OMEGA?</h2>
                 <div class="row mx-auto my-auto justify-content-center">
-                    <div class="carrusel">
+                    <div class="carrusel ms-2">
                         <div class="elemento" *ngFor="let informacion of this.infoOmega">
-                            <a href="{{informacion.data.uri}}"><img class="rhythm-slide-album" src="{{informacion.data.albumOfTrack.coverArt.sources[0].url}}"/></a>
+                            <a href="{{informacion.uri}}"><img class="rhythm-slide-album"
+                                    src="{{informacion.album.images[1].url}}" /></a>
                         </div>
                     </div>
                 </div>
             </div>
             <img src="./../../../assets/imagenes/artworks-fUAjJwMNdYwfWLeS-7HQriA-t500x500-removebg-preview.png"
                 class="img-fluid w-25" alt="Omega el Fuerte">
+        </div>
+    </div>
+    <div class="row rhythm-generosMusic">
+        <div class="col-12">
+            <h1 class="text-center mt-5">¡HECHA UN VISTAZO A ESTOS GÉNEROS MUSICALES!</h1>
+        </div>
+        <div class="col-12 row">
+            <div data-aos="flip-up" class="col-4 mt-4 mb-4 d-flex justify-content-center"
+                *ngFor="let informacion of this.arraiInfoGeneros">
+                <mat-card>
+                    <img  src="{{informacion[1][0]?.album?.images[1]?.url}}" alt="imagenesGéneros">
+                    <mat-card-content>
+                        <h5 class="text-center mt-2">{{informacion[0].nombre | titlecase}}</h5>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

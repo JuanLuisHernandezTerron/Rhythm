@@ -6,4 +6,19 @@
     &-logo{
         width: 10% !important;
     }
+
+    &-general{
+        position: sticky;
+        top: 0px;
+    }
+}
+
+h5{
+    font-weight: bold;
+    transition: all 0.5s ease;
+    &:hover{
+        cursor: pointer;
+        color: #a68107db;
+        font-weight: bold;
+    }
 }

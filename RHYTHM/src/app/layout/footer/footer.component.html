@@ -1,1 +1,21 @@
-<p>footer works!</p>
+<div class="container-fluid rhythm-footer">
+    <div class="row justify-content-center">
+        <div class="col-6 d-flex flex-column text-center">
+            <h2 class="mt-3">Información</h2>
+                <h6 class="mt-4"  routerLink="/informacionLegal/PoliticadePrivacidad">Política de Privacidad</h6>
+                <h6 class="mt-3" routerLink="/informacionLegal/AvisoLegal">Aviso Legal</h6>
+                <h6 class="mt-3" routerLink="/informacionLegal/PolíticadeCookies">Política de Cookies</h6>
+        </div>
+        <div class="col-6 text-center">
+            <h2 class="mb-3 mt-3">!LOS MEJORES TOP'S SPOTIFY!</h2>
+            <a href="{{informacion.uri}}" *ngFor="let informacion of this.arrayTop">
+                <h6 class="mt-3 mb-1 w-25 m-auto">{{informacion.name}}</h6>
+            </a>
+        </div>
+    </div>
+    <div class="row d-flex flex-column justify-content-center align-items-center">
+        <h2 class="text-center text-light">API UTILIZADA</h2>
+        <img src="./../../../assets/imagenes/SPOTIFY-PNG.png" class="img-fluid rhythm-img" alt="spotify">
+        <h6 class="text-secondary text-center">© WEB REALIZADA POR JUAN LUIS HERNÁNDEZ TERRÓN {{this.yearNow.getUTCFullYear()}}</h6>
+    </div>
+</div>
