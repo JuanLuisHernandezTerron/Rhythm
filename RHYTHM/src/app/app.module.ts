@@ -4,6 +4,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from "@angular/common";
 import {MatCardModule} from '@angular/material/card';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +20,7 @@ import { MainComponent } from './pages/main/main.component';
 import { PoliticaPrivacidadComponent } from './pages/avisoLegal/politica-privacidad/politica-privacidad.component';
 import { AvisoLegalComponent } from './pages/avisoLegal/aviso-legal/aviso-legal.component';
 import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/politica-cookies.component';
+import { CantantesComponent } from './pages/cantantes/cantantes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +30,8 @@ import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/po
     MainComponent,
     PoliticaPrivacidadComponent,
     AvisoLegalComponent,
-    PoliticaCookiesComponent
+    PoliticaCookiesComponent,
+    CantantesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,13 @@ import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/po
     AppRoutingModule,
     BrowserAnimationsModule,
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

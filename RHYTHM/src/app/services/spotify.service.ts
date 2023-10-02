@@ -8,7 +8,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SpotifyService implements OnInit {
   private _getInfoQuevedo$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getInfoOmega$: BehaviorSubject<[]> = new BehaviorSubject([]);
-  private accessToken = 'BQDf86NpxSkEn2D98kLAzftGAn0mZcw3EGtOloEV5LKLMUAY8NUgxxKStJCmWxdBkHUxoQyGxzHPupPNfy6KtB6YxkHEgr47E25GeCHc59ueaSdKMg0';
+  private _getCantantes$: BehaviorSubject<[]> = new BehaviorSubject([]);
+  private accessToken = 'BQB-Lh9NwMuN_Tup-NpjGRoWyhoS1BmoIluM38jyu_2-jiisWuy5zxfRm82VINyoxmmM6UlUZTczs9rT3DTIIRgKpv_5DAIODwDSmiBq9D3yjaXCras';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();
@@ -22,12 +23,20 @@ export class SpotifyService implements OnInit {
     this._getInfoQuevedo$.next(info);
   }
 
+  setInfoCantantesSearch(info: any) {
+    this._getCantantes$.next(info);
+  }
+
   setInfoOmega(info: any) {
     this._getInfoOmega$.next(info);
   }
 
   get getInfoOmega$(): Observable<any> {
     return this._getInfoOmega$.asObservable();
+  }
+
+  get getInfoCantantesSearch$(): Observable<any> {
+    return this._getCantantes$.asObservable();
   }
 
   get getInfoQuevedo$(): Observable<any> {
@@ -53,6 +62,12 @@ export class SpotifyService implements OnInit {
   PetitionAlbum(){
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
     const endpoint = "https://api.spotify.com/v1/search?q=top 50&type=playlist&limit=10";
+    return this.http.get<any>(endpoint, { headers: headers });
+  }
+
+  petitionBuscadorCantantes(cantante:any){
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
+    const endpoint = `https://api.spotify.com/v1/search?q=${cantante}&type=artist&limit=10`;
     return this.http.get<any>(endpoint, { headers: headers });
   }
 

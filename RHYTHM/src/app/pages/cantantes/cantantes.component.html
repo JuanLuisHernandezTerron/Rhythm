@@ -1,0 +1,24 @@
+<div class="container-fluid rhythm">
+    <div class="container">
+        <div class="row justify-content-center">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Busca tus cantantes favoritos</mat-label>
+                  <input matInput
+                         aria-label="Busca tus cantantes favoritos"
+                         [matAutocomplete]="auto"
+                         [formControl]="cantantesCtrl"
+                         (ngModelChange)="searchQ($event)">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let informacion of this.filteredCantantes | async">
+                        <div class="d-flex align-items-center rhythm-divOption">
+                            <img alt="imagenes-artistas" class="rhythm-opciones ms-3" src="{{informacion.images[0]?.url}}">
+                            <h6 class="ms-4">{{informacion.name}}</h6>
+                        </div>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+        </div>
+    </div>
+</div>

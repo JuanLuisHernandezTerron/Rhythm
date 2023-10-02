@@ -1,0 +1,40 @@
+.rhythm{
+    background-color: #f1da9adb;
+    &-opciones{
+        width: 10%;
+    }
+    &-divOption:hover{
+        cursor: pointer;
+    }
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),::ng-deep .mdc-text-field--filled:not(.mdc-text-field--enabled) {
+    background-color: #f4ead0 !important;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label, ::ng-deep .mdc-text-field:not(.mdc-text-field--enabled) .mdc-floating-label{
+    color: rgb(0, 0, 0) !important;
+}
+
+::ng-deep .mdc-text-field .mdc-text-field__input{
+    caret-color: black;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-option-img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  [dir='rtl'] .example-option-img {
+    margin-right: 0;
+    margin-left: 8px;
+  }
