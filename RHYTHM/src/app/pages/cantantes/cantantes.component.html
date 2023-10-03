@@ -10,7 +10,7 @@
                          [formControl]="cantantesCtrl"
                          (ngModelChange)="searchQ($event)">
                   <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let informacion of this.filteredCantantes | async">
+                    <mat-option class="rhythm-option mt-2" *ngFor="let informacion of this.filteredCantantes | async">
                         <div class="d-flex align-items-center rhythm-divOption">
                             <img alt="imagenes-artistas" class="rhythm-opciones ms-3" src="{{informacion.images[0]?.url}}">
                             <h6 class="ms-4">{{informacion.name}}</h6>

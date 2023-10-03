@@ -22,7 +22,11 @@
                     <div class="carrusel ms-2">
                         <div class="elemento" *ngFor="let informacion of this.infoOmega">
                             <a href="{{informacion.uri}}"><img class="rhythm-slide-album"
-                                    src="{{informacion.album.images[1].url}}" /></a>
+                                    src="{{informacion.album.images[1].url}}"/></a>
+                            <div class="botones">
+                                    <button mat-raised-button id="audios" (click)="this.playMusic(informacion.preview_url)">Preview</button>
+                                    <a href="{{informacion.uri}}"><button mat-raised-button class="rhythm-botonSpotify"> Spotify</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>

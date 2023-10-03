@@ -18,6 +18,8 @@ export class MainComponent implements OnInit {
   infoOmega: any;
   arrainfoOmega: any[] = [];
   arraiInfoGeneros: any[] = [];
+  urlAnterio:any;
+  audio = new Audio();
 
   ngOnInit(): void {
     this.spotifyService.getInfoQuevedo$.subscribe(data => {
@@ -26,6 +28,7 @@ export class MainComponent implements OnInit {
     })
 
     this.spotifyService.getInfoOmega$.subscribe(data => {
+      console.log(data);
       this.infoOmega = data;
       this.infoOmegaMain();
     })
@@ -35,6 +38,13 @@ export class MainComponent implements OnInit {
 
   infoOmegaMain() {
     this.infoOmega = this.infoOmega.tracks?.filter((x: any) => x.artists.filter((y: any) => y.name == 'Omega'))
+  }
+
+  playMusic(urlMusica:any){
+    this.audio.pause();    
+    this.audio.src = urlMusica;
+    this.audio.volume = 0.5;
+    this.audio.play();
   }
 
   infoGeneros() {

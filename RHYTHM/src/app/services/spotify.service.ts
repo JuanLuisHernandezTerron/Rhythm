@@ -9,7 +9,7 @@ export class SpotifyService implements OnInit {
   private _getInfoQuevedo$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getInfoOmega$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getCantantes$: BehaviorSubject<[]> = new BehaviorSubject([]);
-  private accessToken = 'BQB-Lh9NwMuN_Tup-NpjGRoWyhoS1BmoIluM38jyu_2-jiisWuy5zxfRm82VINyoxmmM6UlUZTczs9rT3DTIIRgKpv_5DAIODwDSmiBq9D3yjaXCras';
+  private accessToken = 'BQAOPTElFZ8FYPTGRQMwDaDHr2OqJTUsuzS7M4iLF7has4XQxLPn8NJhfgpquoCB7ZAeHMQ2gcjj4Uo9sWG0wnkRVMrp81MyHjfi0dMk_U6HyFxCpTk';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();

@@ -13,9 +13,7 @@ export class FooterComponent implements OnInit{
   ngOnInit(): void {
       this.spotifyService.PetitionAlbum().subscribe(data=>{
         this.arrayTop = data.playlists.items;
-        this.arrayTop = this.arrayTop.filter(x => x.description.includes("Tu actualización diaria"))
-        console.log(this.arrayTop);
-        
+        this.arrayTop = this.arrayTop.filter(x => x.description.includes("Tu actualización diaria"))        
       });
   }
 }
