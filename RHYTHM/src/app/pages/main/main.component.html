@@ -1,5 +1,5 @@
 <div class="container-fluid rhythm">
-    <div class="row rhythm-inicio">
+    <div id="altura" class="row rhythm-inicio">
         <div class="col-6 d-flex align-items-center justify-content-center flex-column gap-5 mt-2 pb-4">
             <div>
                 <span class="rhythm-titulo">NEW</span>
@@ -13,36 +13,36 @@
 
         </div>
     </div>
-    <div class="row rhythm-slide">
+    <div  class="row rhythm-slide">
         <div class="text-center d-flex justify-content-around align-items-center">
-            <h1 class="rhythm-slide-Omega ms-5">Omega <br>el<br>'Fuerte'</h1>
+            <h1 data-aos="zoom-in-down" class="rhythm-slide-Omega ms-5">Omega <br>el<br>'Fuerte'</h1>
             <div class="w-50 container text-center my-3">
-                <h2 class="rhythm-slide-titulo text-center mb-5">¿Por qué elegir OMEGA?</h2>
+                <h2 data-aos="zoom-in-down" class="rhythm-slide-titulo text-center mb-5">¿Por qué elegir OMEGA?</h2>
                 <div class="row mx-auto my-auto justify-content-center">
                     <div class="carrusel ms-2">
-                        <div class="elemento" *ngFor="let informacion of this.infoOmega">
+                        <div data-aos="zoom-in-down" class="elemento" *ngFor="let informacion of this.infoOmega">
                             <a href="{{informacion.uri}}"><img class="rhythm-slide-album"
                                     src="{{informacion.album.images[1].url}}"/></a>
                             <div class="botones">
-                                    <button mat-raised-button id="audios" (click)="this.playMusic(informacion.preview_url)">Preview</button>
+                                    <button mat-raised-button id="audios" (click)="this.playMusic(informacion.preview_url)"><mat-icon>play_circle</mat-icon>Preview</button>
                                     <a href="{{informacion.uri}}"><button mat-raised-button class="rhythm-botonSpotify"> Spotify</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="./../../../assets/imagenes/artworks-fUAjJwMNdYwfWLeS-7HQriA-t500x500-removebg-preview.png"
+            <img data-aos="zoom-in-down" src="./../../../assets/imagenes/artworks-fUAjJwMNdYwfWLeS-7HQriA-t500x500-removebg-preview.png"
                 class="img-fluid w-25" alt="Omega el Fuerte">
         </div>
     </div>
-    <div class="row rhythm-generosMusic">
+    <div  class="row rhythm-generosMusic">
         <div class="col-12">
-            <h1 class="text-center mt-5">¡HECHA UN VISTAZO A ESTOS GÉNEROS MUSICALES!</h1>
+            <h1 data-aos="zoom-in-down" class="text-center mt-5">¡HECHA UN VISTAZO A ESTOS GÉNEROS MUSICALES!</h1>
         </div>
         <div class="col-12 row">
-            <div data-aos="flip-up" class="col-4 mt-4 mb-4 d-flex justify-content-center"
+            <div class="col-4 mt-4 mb-4 d-flex justify-content-center"
                 *ngFor="let informacion of this.arraiInfoGeneros">
-                <mat-card>
+                <mat-card data-aos="zoom-in-down">
                     <img  src="{{informacion[1][0]?.album?.images[1]?.url}}" alt="imagenesGéneros">
                     <mat-card-content>
                         <h5 class="text-center mt-2">{{informacion[0].nombre | titlecase}}</h5>

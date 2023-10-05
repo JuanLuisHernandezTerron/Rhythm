@@ -13,7 +13,6 @@ export class CantantesComponent implements OnInit {
   cantantesCtrl = new FormControl('');
   filteredCantantes!: Observable<any[]>;
   cantantes: any[] = [];
-
   constructor(private service: SpotifyService) {
     this.filteredCantantes = this.cantantesCtrl.valueChanges.pipe(
       startWith(''),
@@ -22,7 +21,9 @@ export class CantantesComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
+    this.service.getinfoCantantesPage$.subscribe(data=>{
+      console.log(data)
+    })
   }
 
   searchQ(cadena: any) {
@@ -36,8 +37,9 @@ export class CantantesComponent implements OnInit {
         this.cantantes = data.artists?.items;
       })
     }
-
   }
+
+
 
   _filterCantantes(value: string): any[] {
     const filterValue = value.toLowerCase();

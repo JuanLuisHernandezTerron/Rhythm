@@ -1,12 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+declare var $:any;
+
 
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  
 })
 export class MainComponent implements OnInit {
 
@@ -18,8 +22,9 @@ export class MainComponent implements OnInit {
   infoOmega: any;
   arrainfoOmega: any[] = [];
   arraiInfoGeneros: any[] = [];
-  urlAnterio:any;
+  urlAnterio: any;
   audio = new Audio();
+
 
   ngOnInit(): void {
     this.spotifyService.getInfoQuevedo$.subscribe(data => {
@@ -28,11 +33,17 @@ export class MainComponent implements OnInit {
     })
 
     this.spotifyService.getInfoOmega$.subscribe(data => {
-      console.log(data);
       this.infoOmega = data;
       this.infoOmegaMain();
     })
     this.infoGeneros();
+    
+    $(document).ready(function () {
+
+      var height = $(window).height();
+
+      $('#altura').height(height);
+    });
 
   }
 
@@ -40,8 +51,8 @@ export class MainComponent implements OnInit {
     this.infoOmega = this.infoOmega.tracks?.filter((x: any) => x.artists.filter((y: any) => y.name == 'Omega'))
   }
 
-  playMusic(urlMusica:any){
-    this.audio.pause();    
+  playMusic(urlMusica: any) {
+    this.audio.pause();
     this.audio.src = urlMusica;
     this.audio.volume = 0.5;
     this.audio.play();
@@ -80,12 +91,12 @@ export class MainComponent implements OnInit {
       []
       ]
     ]
-     this.arraiInfoGeneros.forEach(x=>{
-       this.spotifyService.petitionGeneros(x[0].nombre).subscribe(data => {
-         x[1].push(data.tracks.items[0]);
-       })
-     })
-    
+    this.arraiInfoGeneros.forEach(x => {
+      this.spotifyService.petitionGeneros(x[0].nombre).subscribe(data => {
+        x[1].push(data.tracks.items[0]);
+      })
+    })
+
   }
 
   infoQuevedoAlbum() {
