@@ -1,48 +1,138 @@
-.rhythm{
-    background-color: #f1da9adb;
-    &-opciones{
-        width: 10%;
-    }
-    &-option{
-      background-color: #f4ead0;
-    }
-    &-divOption:hover{
+.rhythm {
+  background-color: #f1da9adb;
+
+  &-opciones {
+    width: 10%;
+  }
+
+  &-option {
+    background-color: #f4ead0;
+  }
+
+  &-slide {
+    min-height: 20vw;
+    background-image: url('./../../../assets/imagenes/monaco_-_31663-_Original_.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    filter: grayscale(0.3);
+
+    &-album {
+      transition: all 0.8s ease;
+      border-radius: 3px;
+      &:hover {
+        filter: grayscale(0.8);
+        transition: all 0.6s ease;
         cursor: pointer;
+      }
     }
+
+    &-divOption:hover {
+      cursor: pointer;
+    }
+  }
 }
 
-::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),::ng-deep .mdc-text-field--filled:not(.mdc-text-field--enabled) {
-    background-color: #f4ead0 !important;
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
 }
 
-::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label, ::ng-deep .mdc-text-field:not(.mdc-text-field--enabled) .mdc-floating-label{
-    color: rgb(0, 0, 0) !important;
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--enabled) {
+  background-color: #f4ead0 !important;
 }
 
-::ng-deep .mdc-text-field .mdc-text-field__input{
-    caret-color: black;
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label,
+::ng-deep .mdc-text-field:not(.mdc-text-field--enabled) .mdc-floating-label {
+  color: rgb(0, 0, 0) !important;
 }
 
-::ng-deep .cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mdc-menu-surface.mat-mdc-autocomplete-panel{
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  caret-color: black;
+}
+
+::ng-deep .cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mdc-menu-surface.mat-mdc-autocomplete-panel {
   background-color: #f4ead0;
 }
 
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
-  .example-option-img {
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-  
-  [dir='rtl'] .example-option-img {
-    margin-right: 0;
-    margin-left: 8px;
-  }
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.elemento{
+  border-radius: 10px;
+}
+
+.elemento{
+  position: relative;
+  display: inline-block;
+  flex: 1 0 auto;
+  margin: 0 50px;
+  width: 300px;
+  height: 300px;
+}
+.elemento .info{
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.elemento:hover .botones {
+  opacity: 1;
+}   
+
+.elemento .botones button {
+  margin: .5em;
+}
+
+.carrusel{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+.carrusel::-webkit-scrollbar{
+  -webkit-appearance: none;
+}
+
+.carrusel::-webkit-scrollbar-thumb {
+  background-color: #7a7878;
+  border-radius: 20px;
+  border: 1px;
+}
+
+.carrusel::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+.carrusel::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+.example-option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+[dir='rtl'] .example-option-img {
+  margin-right: 0;
+  margin-left: 8px;
+}

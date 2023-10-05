@@ -1,24 +1,91 @@
 <div class="container-fluid rhythm">
-    <div class="container">
-        <div class="row justify-content-center">
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Busca tus cantantes favoritos</mat-label>
-                  <input matInput
-                         aria-label="Busca tus cantantes favoritos"
-                         [matAutocomplete]="auto"
-                         [formControl]="cantantesCtrl"
-                         (ngModelChange)="searchQ($event)">
-                  <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option class="rhythm-option mt-2" *ngFor="let informacion of this.filteredCantantes | async">
-                        <div class="d-flex align-items-center rhythm-divOption">
-                            <img alt="imagenes-artistas" class="rhythm-opciones ms-3" src="{{informacion.images[0]?.url}}">
-                            <h6 class="ms-4">{{informacion.name}}</h6>
-                        </div>
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-              </form>
-        </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Busca tus cantantes favoritos</mat-label>
+          <input matInput aria-label="Busca tus cantantes favoritos" [matAutocomplete]="auto"
+            [formControl]="cantantesCtrl" (ngModelChange)="searchQ($event)">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option class="rhythm-option mt-2" *ngFor="let informacion of this.filteredCantantes | async">
+              <div class="d-flex align-items-center rhythm-divOption">
+                <img alt="imagenes-artistas" class="rhythm-opciones ms-3" src="{{informacion.images[0]?.url}}">
+                <h6 class="ms-4">{{informacion.name}}</h6>
+              </div>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
     </div>
+    <div class="row">
+      <h1>Flamenco</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoFlamenco">
+            <a href="{{informacion?.artists.items[0]?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+            <div class="info">
+                <h6>{{informacion?.artists?.items[0]?.name}}</h6>
+                <h6>{{informacion?.artists?.items[0]?.followers.total}} Seguidores</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Reggaeton</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoReggeton">
+            <a href="{{informacion?.artists.items[0]?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Pop</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoPop">
+            <a href="{{informacion?.artists.items[0]?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Rap</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoRap">
+            <a href="{{informacion?.artists.items[0]?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Salsa</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoSalsa">
+            <a href="{{informacion?.artists.items[0]?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Sad</h1>
+      <div class="mt-3 mb-3 mx-auto my-auto justify-content-center">
+        <div class="carrusel ms-2">
+          <div data-aos="zoom-in-down" class="ms-4 elemento" *ngFor="let informacion of this.arrayInfoSad">
+            <a href="{{informacion?.items?.artists?.uri}}"><img class="rhythm-slide-album"
+                src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
