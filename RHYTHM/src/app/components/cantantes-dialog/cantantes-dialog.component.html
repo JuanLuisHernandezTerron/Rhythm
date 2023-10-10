@@ -1,0 +1,14 @@
+<mat-dialog-content class="mat-typography row">
+  <div class="col-3 d-flex flex-column">
+    <img class="img-fluid w-75" src="{{this.informacionCantante.images[1].url}}" alt="imagenArtista">
+    <h1>{{this.informacionCantante.name}}</h1>
+    <h3>{{this.informacionCantante.followers.total | number}} Seguidores</h3>
+    <span *ngFor="let informacion of this.informacionCantante.genres">{{informacion}}</span>
+  </div>
+  <div class="col-9">
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

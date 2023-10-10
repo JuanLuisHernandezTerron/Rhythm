@@ -9,6 +9,7 @@ export class SpotifyService implements OnInit {
   private _getInfoQuevedo$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getInfoOmega$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getCantantes$: BehaviorSubject<[]> = new BehaviorSubject([]);
+  private _getCantantesID$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getinfoCantantesPage$: Subject<[]> = new Subject();
   arrayCantantes:any []= ['Bad Bunny','Anuel AA','Rauw Alejandro','J Balvin','Mora','Feid','El Barrio','Demarco Flamenco','Andy & Lucas','José Mercé','El Arrebato','Los Rebujitos','Jay-Z','Eminem','Kanye West','Tupac','Snoop Dogg',
 'Ariana Grande','Lady Gaga','Rosalía','David Bisbal','Rels B','Pablo Alborán','Héctor Lavoe','Willie Colón','Rubén Blades','Marc Anthony','Ismael Rivera','XXXTentacion']
@@ -16,7 +17,7 @@ export class SpotifyService implements OnInit {
   arrayInfoCantantes:any[] = [];
 
   
-  private accessToken = 'BQAEeMATd7Bs4tKrB0symQ-vV4EAfst6SpbyNwrOn4VT-S32WAU2C1AdD_QfrjhAxyPyyZeQLrjT_bhQ9qZtSrACm9TJNAC7YnJVK4jynU6Ccxeiog8';
+  private accessToken = 'BQDxUwyztLSD6Lz1yuRjRTw1sFE__J0FETdA4gi_eYyCUEKKEq8aDZ3nXhzfHkOQJhn41-ev4EMXW1JlIPZenHxdb6a_OSWWPL6iGcuh8-y1Zwkd_8M';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();
@@ -43,8 +44,16 @@ export class SpotifyService implements OnInit {
     this._getInfoOmega$.next(info);
   }
 
+  setCantantesID(info:any){
+    this._getCantantesID$.next(info);
+  }
+
   get getInfoOmega$(): Observable<any> {
     return this._getInfoOmega$.asObservable();
+  }
+
+  get getCantantesID$(): Observable<any> {
+    return this._getCantantesID$.asObservable();
   }
 
   get getinfoCantantesPage$(): Observable<any> {
@@ -93,6 +102,14 @@ export class SpotifyService implements OnInit {
     return this.http.get<any>(endpoint, { headers: headers });
   }
 
+  petitionGetCantantedID(idCantante:any){
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
+    const endpoint = `https://api.spotify.com/v1/artists/${idCantante}/top-tracks?market=ES`;
+    return this.http.get<any>(endpoint, { headers: headers }).subscribe(data=>{
+      this.setCantantesID(data);
+    });;
+  }
+
   petitionCantantesGeneros(){
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
     this.arrayCantantes.forEach(e=>{
@@ -102,6 +119,5 @@ export class SpotifyService implements OnInit {
         this.setinfoCantantesPage(this.arrayAUX);
       });
     })
-
   }
 }

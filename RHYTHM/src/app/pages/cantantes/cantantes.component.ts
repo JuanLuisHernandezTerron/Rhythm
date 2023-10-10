@@ -3,6 +3,10 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { CantantesDialogComponent } from 'src/app/components/cantantes-dialog/cantantes-dialog.component';
+import { MatExpansionPanel } from '@angular/material/expansion';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-cantantes',
   templateUrl: './cantantes.component.html',
@@ -14,6 +18,7 @@ export class CantantesComponent implements OnInit {
   filteredCantantes!: Observable<any[]>;
   cantantes: any[] = [];
   arrayInfoAllCantantes: any[] = [];
+  dialogCantante!: MatDialogRef<CantantesDialogComponent>;
 
   arrayInfoReggeton: any[] = [];
   arrayInfoFlamenco: any[] = [];
@@ -22,7 +27,7 @@ export class CantantesComponent implements OnInit {
   arrayInfoSalsa: any[] = [];
   arrayInfoSad: any[] = [];
 
-  constructor(private service: SpotifyService) {
+  constructor(private service: SpotifyService,private dialog: MatDialog) {
     this.filteredCantantes = this.cantantesCtrl.valueChanges.pipe(
       startWith(''),
       map(state => (state ? this._filterCantantes(state) : this.cantantes.slice())),
@@ -36,11 +41,22 @@ export class CantantesComponent implements OnInit {
         this.rellenarArraysFilter();
       }, 500)
     })
-
   }
 
-  searchQ(cadena: any) {
-    if (cadena.length > 0) {
+  abrirDialog(enterAnimationDuration: string, exitAnimationDuration: string, cantanteID: any):void{
+    this.service.petitionGetCantantedID(cantanteID[0]);
+    this.dialogCantante = this.dialog.open(CantantesDialogComponent,{
+      width: '90%',
+      height:'60%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: cantanteID,
+      autoFocus: false
+    })
+  }
+
+  searchQ(cadena: any):void {
+    if (cadena?.length > 0) {
       this.service.petitionBuscadorCantantes(cadena).subscribe(data => {
         this.service.setInfoCantantesSearch(data);
       });
@@ -59,6 +75,7 @@ export class CantantesComponent implements OnInit {
     this.arrayInfoSalsa = this.arrayInfoAllCantantes.filter(x => x.artists.items[0].genres.some((e: any) => e.includes("salsa")));
     this.arrayInfoRap = this.arrayInfoAllCantantes.filter(x => x.artists.items[0].genres.some((e: any) => e.includes("rap")));
   }
+
   _filterCantantes(value: string): any[] {
     const filterValue = value.toLowerCase();
     return this.cantantes?.filter(cantante => cantante.name.toLowerCase().includes(filterValue));

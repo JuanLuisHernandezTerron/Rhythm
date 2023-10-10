@@ -83,6 +83,9 @@ a {
   margin: 0 50px;
   width: 300px;
   height: 300px;
+  &:hover{
+    filter: grayscale(0.8);
+  }
 }
 .elemento .info{
   position: absolute;
@@ -93,15 +96,14 @@ a {
   align-items: center;
   opacity: 0;
   transition: opacity .5s ease;
+  color: white;
+  filter: grayscale(0.8);
+  cursor: pointer;
 }
 
-.elemento:hover .botones {
+.elemento:hover .info {
   opacity: 1;
 }   
-
-.elemento .botones button {
-  margin: .5em;
-}
 
 .carrusel{
   display: flex;

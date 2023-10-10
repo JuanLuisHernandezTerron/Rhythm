@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { PoliticaPrivacidadComponent } from './pages/avisoLegal/politica-privaci
 import { AvisoLegalComponent } from './pages/avisoLegal/aviso-legal/aviso-legal.component';
 import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/politica-cookies.component';
 import { CantantesComponent } from './pages/cantantes/cantantes.component';
+import { CantantesDialogComponent } from './components/cantantes-dialog/cantantes-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { CantantesComponent } from './pages/cantantes/cantantes.component';
     PoliticaPrivacidadComponent,
     AvisoLegalComponent,
     PoliticaCookiesComponent,
-    CantantesComponent
+    CantantesComponent,
+    CantantesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { CantantesComponent } from './pages/cantantes/cantantes.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
