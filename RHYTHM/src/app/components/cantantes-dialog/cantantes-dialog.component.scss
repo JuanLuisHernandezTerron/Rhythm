@@ -1,0 +1,64 @@
+.rythm {
+    &-imagenCanciones {
+        width: 8% !important;
+    }
+
+    &-infoCantante {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    &-imagenCantante {
+        border-radius: 10%;
+    }
+
+    &-matcard {
+        color: white !important;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: rgb(59, 59, 52);
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            background-color: #cbcbc9fb !important;
+            border: 1px solid black !important;
+            color: black !important;
+            cursor: pointer;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit;
+        background: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+    }
+}
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: #f1da9afb;
+}
+
+::ng-deep .mat-mdc-raised-button:not(:disabled) {
+    background-color: #eadfc0fb !important;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        background-color: rgb(170, 211, 170) !important;
+        color: white;
+    }
+}
+
+.elemento {
+    position: relative;
+}
+
+.elemento .spinner{
+    display: block;
+    position: absolute;
+    width: 98px !important;
+}
