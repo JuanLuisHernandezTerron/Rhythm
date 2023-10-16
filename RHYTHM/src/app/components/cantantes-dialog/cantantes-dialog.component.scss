@@ -27,7 +27,7 @@
             cursor: pointer;
         }
     }
-
+    
     a {
         text-decoration: none;
         cursor: pointer;
@@ -36,6 +36,15 @@
         border: none;
         padding: 0;
         font: inherit;
+    }
+}
+
+.logo{
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        color: #fffffffb !important;
+        cursor: pointer;
+        -webkit-transform: rotate(360deg);transform: rotate(360deg)
     }
 }
 
@@ -62,3 +71,8 @@
     position: absolute;
     width: 98px !important;
 }
+
+::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic{
+    stroke: rgb(79, 81, 81) !important;
+}
+

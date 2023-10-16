@@ -1,6 +1,11 @@
 <mat-dialog-content class="mat-typography rythm">
   <div class="row">
-    <div class="col-3 d-flex flex-column mt-5 rythm-infoCantante">
+    <div class="col-12 d-flex justify-content-end">
+      <mat-icon class="logo" (click)="cerrarDialog()">close</mat-icon>
+    </div>
+  </div>
+  <div class="row">
+    <div (click)="pararMusica()" class="col-3 d-flex flex-column mt-5 rythm-infoCantante">
       <div class="row text-center ">
         <img class="img-fluid w-50 m-auto rythm-imagenCantante" src="{{this.informacionCantante.images[1].url}}"
           alt="imagenArtista">
@@ -14,7 +19,7 @@
     </div>
     <div class="col-9">
       <div class="row">
-        <mat-card (click)="this.playPreviwe(informacion.duration_ms,informacion.id,informacion.preview_url)" class="mt-4 rythm-matcard" *ngFor="let informacion of this.ObjectInfoCantante">
+        <mat-card (click)="this.playPreviwe(informacion.duration_ms,informacion.id,informacion.preview_url)" class="mt-4 rythm-matcard"  *ngFor="let informacion of this.ObjectInfoCantante">
           <mat-card-content class="d-flex row align-items-center elemento">
             <img class="w-50 rythm-imagenCanciones col-3" src="{{informacion.album.images[0].url}}" alt="">
             <h5 class="d-inline col-4 ms-5 text-center">{{informacion.name}}</h5>
