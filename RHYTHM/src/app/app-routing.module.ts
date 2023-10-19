@@ -6,6 +6,7 @@ import { PoliticaPrivacidadComponent } from './pages/avisoLegal/politica-privaci
 import { AvisoLegalComponent } from './pages/avisoLegal/aviso-legal/aviso-legal.component';
 import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/politica-cookies.component';
 import { CantantesComponent } from './pages/cantantes/cantantes.component';
+import { PlaylistComponent } from './pages/playlist/playlist.component';
 
 const routes: Routes = [{
   path: '',
@@ -30,6 +31,14 @@ const routes: Routes = [{
   pathMatch:'prefix',
   children:[
     {path:'',component:CantantesComponent},
+  ]
+},
+{
+  path:'playlist',
+  component:SkeletonComponent,
+  pathMatch:'prefix',
+  children:[
+    {path:'',component:PlaylistComponent},
   ]
 }];
 

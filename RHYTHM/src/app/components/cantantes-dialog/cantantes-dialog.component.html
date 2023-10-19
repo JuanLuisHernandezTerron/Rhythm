@@ -5,10 +5,14 @@
     </div>
   </div>
   <div class="row">
-    <div (click)="pararMusica()" class="col-3 d-flex flex-column mt-5 rythm-infoCantante">
-      <div class="row text-center ">
-        <img class="img-fluid w-50 m-auto rythm-imagenCantante" src="{{this.informacionCantante.images[1].url}}"
-          alt="imagenArtista">
+    <div class="col-3 d-flex flex-column mt-5 rythm-infoCantante">
+      <div class="row text-center">
+        <div class="rythm-imagenCantante d-flex justify-content-center align-items-start">
+          <img class="img-fluid w-50 m-auto" src="{{this.informacionCantante.images[1].url}}" alt="imagenArtista">
+          <div class="rythm-icon" >
+              <mat-icon (click)="pararMusica()" id="play" class="w-50 h-100">play_arrow</mat-icon>
+          </div>
+        </div>
         <h1 class="mt-3">{{this.informacionCantante.name}}</h1>
         <h3>{{this.informacionCantante.followers.total | number}} Seguidores</h3>
         <h4>Generos:</h4>
@@ -19,16 +23,15 @@
     </div>
     <div class="col-9">
       <div class="row">
-        <mat-card (click)="this.playPreviwe(informacion.duration_ms,informacion.id,informacion.preview_url)" class="mt-4 rythm-matcard"  *ngFor="let informacion of this.ObjectInfoCantante">
+        <mat-card (click)="this.playPreviwe(informacion.duration_ms,informacion.id,informacion.preview_url)"
+          class="mt-4 rythm-matcard" *ngFor="let informacion of this.ObjectInfoCantante">
           <mat-card-content class="d-flex row align-items-center elemento">
             <img class="w-50 rythm-imagenCanciones col-3" src="{{informacion.album.images[0].url}}" alt="">
             <h5 class="d-inline col-4 ms-5 text-center">{{informacion.name}}</h5>
             <h5 class="d-inline col-3 ms-5 text-center">{{informacion.album.name}}</h5>
             <h5 class="d-inline col-2 ms-5 text-center">{{informacion.duration_ms | date:'mm:ss'}}</h5>
-            <mat-progress-spinner
-              [mode]="mode"
-              [value]="value"
-              class="d-flex justify-content-center d-none" id="{{informacion.id}}">
+            <mat-progress-spinner [mode]="mode" [value]="value" class="d-flex justify-content-center d-none"
+              id="{{informacion.id}}">
             </mat-progress-spinner>
           </mat-card-content>
         </mat-card>

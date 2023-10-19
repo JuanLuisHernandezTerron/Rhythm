@@ -17,7 +17,7 @@ export class SpotifyService implements OnInit {
   arrayInfoCantantes:any[] = [];
 
   
-  private accessToken = 'BQCZqbGQ3F5fsk9jEyqrTJzsPeU3eOf_76tCplB0SGOu_ULyUujaqUeiWZpzmtEZh9jXeThewcOEnvrc2YSXobHu8gdKwOmXUX-KMkKn0KJ2JFszGF0';
+  private accessToken = 'BQBkTDqGHNxv9YZ1blmvbgvC7ZgZiTK70yMZL_wMHYDt8blspCLZzvvWvT0cEQo1mqrKl8OQmC-eAYqL7BUCHTJHKsyNj1-0OU_zRSOUyBYe414NfWc';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();
@@ -98,7 +98,7 @@ export class SpotifyService implements OnInit {
 
   petitionGeneros(genero:any){
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
-    const endpoint = `https://api.spotify.com/v1/search?q=${genero}&type=track&limit=1`;
+    const endpoint = `https://api.spotify.com/v1/search?q=${genero}&type=track&limit=18`;
     return this.http.get<any>(endpoint, { headers: headers });
   }
 

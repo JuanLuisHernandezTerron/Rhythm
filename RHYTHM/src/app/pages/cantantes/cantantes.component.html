@@ -7,7 +7,8 @@
           <input matInput aria-label="Busca tus cantantes favoritos" [matAutocomplete]="auto"
             [formControl]="cantantesCtrl" (ngModelChange)="searchQ($event)">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option (click)="abrirDialog('200ms','200ms',[informacion.id,informacion])" class="rhythm-option mt-2" *ngFor="let informacion of this.filteredCantantes | async">
+            <mat-option (click)="abrirDialog('200ms','200ms',[informacion.id,informacion])" class="rhythm-option mt-2"
+              *ngFor="let informacion of this.filteredCantantes | async">
               <div class="d-flex align-items-center rhythm-divOption">
                 <img alt="imagenes-artistas" class="rhythm-opciones ms-3" src="{{informacion.images[0]?.url}}">
                 <h6 class="ms-4">{{informacion.name}}</h6>
@@ -26,7 +27,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total | number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total |
+                number}}
                 Seguidores</h6>
             </div>
           </div>
@@ -42,7 +44,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total | number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total |
+                number}}
                 Seguidores</h6>
             </div>
           </div>
@@ -58,7 +61,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total | number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total |
+                number}}
                 Seguidores</h6>
             </div>
           </div>
@@ -74,7 +78,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total | number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total |
+                number}}
                 Seguidores</h6>
             </div>
           </div>
@@ -90,7 +95,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total | number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total |
+                number}}
                 Seguidores</h6>
             </div>
           </div>
@@ -106,7 +112,8 @@
                 src="{{informacion?.artists?.items[0]?.images[1]?.url}}" /></a>
             <div class="info">
               <h6 class="text-center">
-                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total| number}}
+                {{informacion?.artists?.items[0]?.name}}<br><br>{{informacion?.artists?.items[0]?.followers.total|
+                number}}
                 Seguidores</h6>
             </div>
           </div>

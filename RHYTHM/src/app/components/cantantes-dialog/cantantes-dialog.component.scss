@@ -11,6 +11,12 @@
 
     &-imagenCantante {
         border-radius: 10%;
+        display: inline-block;
+        position: relative;
+        flex: 1 0 auto;
+        &:hover{
+            filter: grayscale(0.6);
+        }
     }
 
     &-matcard {
@@ -27,7 +33,27 @@
             cursor: pointer;
         }
     }
+
     
+    &-imagenCantante &-icon {
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+        mat-icon{
+            color: white;
+            font-size: 80px !important;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    
+    &-imagenCantante:hover &-icon{
+        opacity: 1;
+    }
+
     a {
         text-decoration: none;
         cursor: pointer;
@@ -39,12 +65,14 @@
     }
 }
 
-.logo{
+.logo {
     transition: all 0.5s ease-in-out;
-    &:hover{
+
+    &:hover {
         color: #fffffffb !important;
         cursor: pointer;
-        -webkit-transform: rotate(360deg);transform: rotate(360deg)
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
     }
 }
 
@@ -62,17 +90,21 @@
     }
 }
 
+::ng-deep .mat-mdc-dialog-content {
+    max-height: 75vh !important;
+}
+
 .elemento {
     position: relative;
 }
 
-.elemento .spinner{
+.elemento .spinner {
     display: block;
     position: absolute;
     width: 98px !important;
 }
 
-::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic{
+::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
     stroke: rgb(79, 81, 81) !important;
 }
-

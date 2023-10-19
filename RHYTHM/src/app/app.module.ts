@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +8,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -28,6 +28,7 @@ import { AvisoLegalComponent } from './pages/avisoLegal/aviso-legal/aviso-legal.
 import { PoliticaCookiesComponent } from './pages/avisoLegal/politica-cookies/politica-cookies.component';
 import { CantantesComponent } from './pages/cantantes/cantantes.component';
 import { CantantesDialogComponent } from './components/cantantes-dialog/cantantes-dialog.component';
+import { PlaylistComponent } from './pages/playlist/playlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { CantantesDialogComponent } from './components/cantantes-dialog/cantante
     AvisoLegalComponent,
     PoliticaCookiesComponent,
     CantantesComponent,
-    CantantesDialogComponent
+    CantantesDialogComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,13 @@ import { CantantesDialogComponent } from './components/cantantes-dialog/cantante
     MatProgressSpinnerModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: NG_VALUE_ACCESSOR,
+    multi: true,
+    useExisting: forwardRef(() => CantantesDialogComponent),
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

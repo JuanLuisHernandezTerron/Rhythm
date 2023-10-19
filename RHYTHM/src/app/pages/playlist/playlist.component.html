@@ -1,0 +1,28 @@
+<div class="container-fluid rythm">
+    <div class="row rythm-fondo text-center align-items-center">
+        <h1 class="text-white">LAS MEJORES PLAYLIST AQUI!</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-2 d-flex justify-content-around">
+                <h6 class="d-inline-block" (click)="filterArrays('')">Todo</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('pop')">PoP</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('flamenco')">Flamenco</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('reggaeton')">Reggaeton</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('rap')">Rap</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('salsa')">Salsa</h6>
+                <h6 class="d-inline-block" (click)="filterArrays('sad')">Sad</h6>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center" *ngFor="let informacion of this.arraiInfoGeneros">
+                <a href="{{informacionAUX.uri}}" class="w-25 elemento" *ngFor="let informacionAUX of informacion[1][0]">
+                    <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}"
+                        alt="imagenPlaylist">
+                    <h5 class="text-center">{{informacionAUX.name}}</h5>
+                    <div class="play text-center d-flex align-items-center">
+                        <mat-icon class="w-100 h-100">play_circle</mat-icon>
+                    </div>
+                </a>
+        </div>
+    </div>
+</div>

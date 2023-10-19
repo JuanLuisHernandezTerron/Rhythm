@@ -47,7 +47,7 @@ export class CantantesComponent implements OnInit {
     this.service.petitionGetCantantedID(cantanteID[0]);
     this.dialogCantante = this.dialog.open(CantantesDialogComponent,{
       width: '90%',
-      height:'70%',
+      height:'85%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: cantanteID,

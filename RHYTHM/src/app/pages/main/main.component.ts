@@ -96,7 +96,8 @@ export class MainComponent implements OnInit {
         x[1].push(data.tracks.items[0]);
       })
     })
-
+    console.log(this.arraiInfoGeneros);
+    
   }
 
   infoQuevedoAlbum() {

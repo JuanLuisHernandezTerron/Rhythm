@@ -1,0 +1,70 @@
+.material-icons {
+    font-family: 'Material Icons' !important;
+}
+
+.rythm {
+    background-color: #f1da9adb;
+
+    &-fondo {
+        background-image: url('./../../../assets/imagenes/listen-3867920_1920.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 40vh;
+    }
+
+    h6 {
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        color: gray !important;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            border-top: 1px solid #a68107db;
+            cursor: pointer;
+            color: black !important;
+        }
+    }
+
+    .elemento:hover .play{
+        opacity: 1;
+    }
+
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+}
+
+.elemento {
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        filter: grayscale(5);
+    }
+}
+
+.elemento .play {
+    position: absolute;
+    width: 100%;
+    top: 125px;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+mat-icon{
+    color: white;
+    font-size: 60px !important;
+    &:hover{
+        cursor: pointer;
+    }
+}

@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { NumberInput } from '@angular/cdk/coercion';
-
+import { FormControl, FormGroup, FormBuilder, Validators, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'app-cantantes-dialog',
   templateUrl: './cantantes-dialog.component.html',
@@ -19,18 +18,20 @@ export class CantantesDialogComponent {
   idAnterior: any;
   urlAnterior: any;
   contador: number = 0;
-  constructor(public dialogRef: MatDialogRef<CantantesDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private service: SpotifyService) { }
+  constructor(public dialogRef: MatDialogRef<CantantesDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private service: SpotifyService, private play: FormBuilder) {
+  }
   ngOnInit() {
-
     this.informacionCantante = this.data[1];
-
+    
     this.service.getCantantesID$.subscribe(data => {
       this.ObjectInfoCantante = data.tracks
     })
+    let iconDefault = document.getElementById('play');    
+    iconDefault!.style.color = '#E1E0DD';
   }
 
-  cerrarDialog(){
-   this.dialogRef.close();
+  cerrarDialog() {
+    this.dialogRef.close();
   }
 
   pararMusica() {
@@ -44,6 +45,8 @@ export class CantantesDialogComponent {
   }
 
   playPreviwe(duracionSegundos: any, id: string, urlMusica: string) {
+    let iconDefault = document.getElementById('play');    
+    iconDefault!.style.color = 'white';
     if (this.idAnterior) {
       this.idAnterior!.classList.remove('spinner');
       this.idAnterior!.classList.add('d-none');
