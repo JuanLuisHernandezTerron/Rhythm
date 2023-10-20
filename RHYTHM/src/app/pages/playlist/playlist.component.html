@@ -14,15 +14,28 @@
                 <h6 class="d-inline-block" (click)="filterArrays('sad')">Sad</h6>
             </div>
         </div>
-        <div class="row d-flex justify-content-center" *ngFor="let informacion of this.arraiInfoGeneros">
+        <ng-container *ngIf="!this.filter;else Filter">
+            <div data-aos="zoom-out-down" class="row d-flex justify-content-center" *ngFor="let informacion of this.arrayInfoGeneros">
                 <a href="{{informacionAUX.uri}}" class="w-25 elemento" *ngFor="let informacionAUX of informacion[1][0]">
-                    <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}"
-                        alt="imagenPlaylist">
+                    <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}" alt="imagenPlaylist">
                     <h5 class="text-center">{{informacionAUX.name}}</h5>
                     <div class="play text-center d-flex align-items-center">
                         <mat-icon class="w-100 h-100">play_circle</mat-icon>
                     </div>
                 </a>
-        </div>
+            </div>
+        </ng-container>
     </div>
 </div>
+
+<ng-template #Filter>
+    <div data-aos="zoom-out-down" class="row d-flex justify-content-center">
+        <a href="{{informacionAUX.uri}}" class="w-25 elemento" *ngFor="let informacionAUX of this.arrayInfoGenerosAUX">
+            <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}" alt="imagenPlaylist">
+            <h5 class="text-center">{{informacionAUX.name}}</h5>
+            <div class="play text-center d-flex align-items-center">
+                <mat-icon class="w-100 h-100">play_circle</mat-icon>
+            </div>
+        </a>
+    </div>
+</ng-template>

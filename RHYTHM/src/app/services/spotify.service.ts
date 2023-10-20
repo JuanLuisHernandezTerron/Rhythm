@@ -17,7 +17,7 @@ export class SpotifyService implements OnInit {
   arrayInfoCantantes:any[] = [];
 
   
-  private accessToken = 'BQBkTDqGHNxv9YZ1blmvbgvC7ZgZiTK70yMZL_wMHYDt8blspCLZzvvWvT0cEQo1mqrKl8OQmC-eAYqL7BUCHTJHKsyNj1-0OU_zRSOUyBYe414NfWc';
+  private accessToken = 'BQARYWMKzveBPxvuSxij89eaq2nbPCrtRf-eSK3Qrq8wHRHbmEksC6H3DqJ222u5I62rj5zfr11wYYAnz050bZFPLFFZp9zgKT6teTIre6W7pNttZLI';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();

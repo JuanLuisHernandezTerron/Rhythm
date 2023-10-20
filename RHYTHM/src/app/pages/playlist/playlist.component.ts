@@ -6,16 +6,18 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-  arraiInfoGeneros: any;
+  arrayInfoGeneros: any;
+  arrayInfoGenerosAUX: any[] = [];
+  filter: boolean = false;
 
-  constructor(private service:SpotifyService) { }
+  constructor(private service: SpotifyService) { }
 
   ngOnInit(): void {
     this.rellenarArrayPlaylist();
   }
 
-  rellenarArrayPlaylist(){
-    this.arraiInfoGeneros = [
+  rellenarArrayPlaylist() {
+    this.arrayInfoGeneros = [
       [{
         'nombre': 'pop'
       },
@@ -48,19 +50,20 @@ export class PlaylistComponent implements OnInit {
       ]
     ]
 
-    this.arraiInfoGeneros.forEach((x:any) => {
+    this.arrayInfoGeneros.forEach((x: any) => {
       this.service.petitionGeneros(x[0].nombre).subscribe(data => {
         x[1].push(data.tracks.items);
       })
     })
-
-    console.log(this.arraiInfoGeneros);
-    
   }
 
-  filterArrays(tipoPlaylist:any){
-    console.log(this.arraiInfoGeneros.forEach((x:any) => {
-      console.log(x[0].nombre);
-    }));
+  filterArrays(tipoPlaylist: any) {
+    this.filter = false;
+    this.arrayInfoGeneros.forEach((x: any) => {
+      if (x[0].nombre == tipoPlaylist) {
+        this.filter = true;
+        this.arrayInfoGenerosAUX = x[1][0];
+      } 
+    });
   }
 }
