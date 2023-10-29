@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&family=Hanken+Grotesk:wght@100&family=Monoton&family=Permanent+Marker&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
 
 .material-icons{
   font-family: 'Material Icons' !important;
@@ -86,6 +87,10 @@
   transform: rotate(360deg);
 }
 
+h5,h1{
+  font-family: 'PT Sans', sans-serif;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -97,7 +102,10 @@ a {
 }
 
 ::ng-deep .mat-mdc-raised-button{
-  background-color: #f1da9af1 !important;
+  background-color: #f1da9af1 !important; 
+  &:hover{
+    background-color: #f1da9af1 !important;
+  }
 }
 
 .carrusel{

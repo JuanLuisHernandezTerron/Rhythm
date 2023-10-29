@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
+
 .rhythm {
   background-color: #f1da9adb;
 
@@ -22,6 +25,7 @@
     &-album {
       transition: all 0.8s ease;
       border-radius: 3px;
+
       &:hover {
         filter: grayscale(0.8);
         transition: all 0.6s ease;
@@ -43,6 +47,10 @@ a {
   border: none;
   padding: 0;
   font: inherit;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
 }
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),
@@ -72,22 +80,25 @@ a {
 .example-full-width {
   width: 100%;
 }
-.elemento{
+
+.elemento {
   border-radius: 10px;
 }
 
-.elemento{
+.elemento {
   position: relative;
   display: inline-block;
   flex: 1 0 auto;
   margin: 0 50px;
   width: 300px;
   height: 300px;
-  &:hover{
+
+  &:hover {
     filter: grayscale(0.8);
   }
 }
-.elemento .info{
+
+.elemento .info {
   position: absolute;
   top: 120px;
   width: 100%;
@@ -103,15 +114,16 @@ a {
 
 .elemento:hover .info {
   opacity: 1;
-}   
+}
 
-.carrusel{
+.carrusel {
   display: flex;
   flex-wrap: nowrap;
   overflow: scroll;
   overflow-y: hidden;
 }
-.carrusel::-webkit-scrollbar{
+
+.carrusel::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
@@ -126,7 +138,7 @@ a {
 }
 
 .carrusel::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 .example-option-img {

@@ -65,5 +65,7 @@ export class PlaylistComponent implements OnInit {
         this.arrayInfoGenerosAUX = x[1][0];
       } 
     });
+
+    
   }
 }

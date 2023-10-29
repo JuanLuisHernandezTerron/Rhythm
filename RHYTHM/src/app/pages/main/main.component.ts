@@ -95,9 +95,7 @@ export class MainComponent implements OnInit {
       this.spotifyService.petitionGeneros(x[0].nombre).subscribe(data => {
         x[1].push(data.tracks.items[0]);
       })
-    })
-    console.log(this.arraiInfoGeneros);
-    
+    })    
   }
 
   infoQuevedoAlbum() {

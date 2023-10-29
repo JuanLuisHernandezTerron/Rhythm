@@ -80,7 +80,7 @@
     background-color: #f1da9afb;
 }
 
-::ng-deep .mat-mdc-raised-button:not(:disabled) {
+::ng-deep .mat-mdc-raised-button {
     background-color: #eadfc0fb !important;
     transition: all 0.5s ease-in-out;
 

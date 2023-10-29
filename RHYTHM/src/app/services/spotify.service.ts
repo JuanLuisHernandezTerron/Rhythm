@@ -10,14 +10,14 @@ export class SpotifyService implements OnInit {
   private _getInfoOmega$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getCantantes$: BehaviorSubject<[]> = new BehaviorSubject([]);
   private _getCantantesID$: BehaviorSubject<[]> = new BehaviorSubject([]);
-  private _getinfoCantantesPage$: Subject<[]> = new Subject();
+  private _getinfoCantantesPage$: BehaviorSubject<[]> = new BehaviorSubject([]);
   arrayCantantes:any []= ['Bad Bunny','Anuel AA','Rauw Alejandro','J Balvin','Mora','Feid','El Barrio','Demarco Flamenco','Andy & Lucas','José Mercé','El Arrebato','Los Rebujitos','Jay-Z','Eminem','Kanye West','Tupac','Snoop Dogg',
 'Ariana Grande','Lady Gaga','Rosalía','David Bisbal','Rels B','Pablo Alborán','Héctor Lavoe','Willie Colón','Rubén Blades','Marc Anthony','Ismael Rivera','XXXTentacion']
   arrayAUX:any [] = [];
   arrayInfoCantantes:any[] = [];
 
   
-  private accessToken = 'BQARYWMKzveBPxvuSxij89eaq2nbPCrtRf-eSK3Qrq8wHRHbmEksC6H3DqJ222u5I62rj5zfr11wYYAnz050bZFPLFFZp9zgKT6teTIre6W7pNttZLI';
+  private accessToken = 'BQDCRE_IuI_kn-C-Bz5i5Q1GWYBy8wWhWoDz7Cpr6Kp4bgHDbHi02tEq8X7U8zFu_RZCteFM_Jb13-QuSZACBqnz2537qwccSMtRMkSsIMKJ8ikiG_4';
   constructor(private http: HttpClient) {
     this.PetitionInfoQuevedo();
     this.PetitionInfoOmega();

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { CantantesDialogComponent } from 'src/app/components/cantantes-dialog/cantantes-dialog.component';
-import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -27,7 +26,7 @@ export class CantantesComponent implements OnInit {
   arrayInfoSalsa: any[] = [];
   arrayInfoSad: any[] = [];
 
-  constructor(private service: SpotifyService,private dialog: MatDialog) {
+  constructor(private service: SpotifyService, private dialog: MatDialog) {
     this.filteredCantantes = this.cantantesCtrl.valueChanges.pipe(
       startWith(''),
       map(state => (state ? this._filterCantantes(state) : this.cantantes.slice())),
@@ -36,18 +35,17 @@ export class CantantesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getinfoCantantesPage$.subscribe(data => {
-      setTimeout(() => {
         this.arrayInfoAllCantantes = data;
-        this.rellenarArraysFilter();
-      }, 500)
+        console.log('entro');
+      this.rellenarArraysFilter();
     })
   }
 
-  abrirDialog(enterAnimationDuration: string, exitAnimationDuration: string, cantanteID: any):void{
+  abrirDialog(enterAnimationDuration: string, exitAnimationDuration: string, cantanteID: any): void {
     this.service.petitionGetCantantedID(cantanteID[0]);
-    this.dialogCantante = this.dialog.open(CantantesDialogComponent,{
+    this.dialogCantante = this.dialog.open(CantantesDialogComponent, {
       width: '90%',
-      height:'85%',
+      height: '85%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: cantanteID,
@@ -55,7 +53,7 @@ export class CantantesComponent implements OnInit {
     })
   }
 
-  searchQ(cadena: any):void {
+  searchQ(cadena: any): void {
     if (cadena?.length > 0) {
       this.service.petitionBuscadorCantantes(cadena).subscribe(data => {
         this.service.setInfoCantantesSearch(data);

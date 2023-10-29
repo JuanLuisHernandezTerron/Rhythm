@@ -1,6 +1,6 @@
 <div class="container-fluid rythm">
     <div class="row rythm-fondo text-center align-items-center">
-        <h1 class="text-white">LAS MEJORES PLAYLIST AQUI!</h1>
+        <h1 class="text-white rythm-titulo">Las Mejores Playlist!</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -14,9 +14,9 @@
                 <h6 class="d-inline-block" (click)="filterArrays('sad')">Sad</h6>
             </div>
         </div>
-        <ng-container *ngIf="!this.filter;else Filter">
+        <ng-container  *ngIf="!this.filter;else Filter">
             <div data-aos="zoom-out-down" class="row d-flex justify-content-center" *ngFor="let informacion of this.arrayInfoGeneros">
-                <a href="{{informacionAUX.uri}}" class="w-25 elemento" *ngFor="let informacionAUX of informacion[1][0]">
+                <a href="{{informacionAUX.uri}}" class="w-25 elemento mb-3" *ngFor="let informacionAUX of informacion[1][0]">
                     <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}" alt="imagenPlaylist">
                     <h5 class="text-center">{{informacionAUX.name}}</h5>
                     <div class="play text-center d-flex align-items-center">
@@ -30,7 +30,7 @@
 
 <ng-template #Filter>
     <div data-aos="zoom-out-down" class="row d-flex justify-content-center">
-        <a href="{{informacionAUX.uri}}" class="w-25 elemento" *ngFor="let informacionAUX of this.arrayInfoGenerosAUX">
+        <a href="{{informacionAUX.uri}}" class="mb-3 w-25 elemento" *ngFor="let informacionAUX of this.arrayInfoGenerosAUX">
             <img class=" ms-2 mt-3 mb-2 me-2" src="{{informacionAUX.album.images[1].url}}" alt="imagenPlaylist">
             <h5 class="text-center">{{informacionAUX.name}}</h5>
             <div class="play text-center d-flex align-items-center">

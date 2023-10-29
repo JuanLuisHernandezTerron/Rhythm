@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
+
 .material-icons {
     font-family: 'Material Icons' !important;
 }
@@ -12,6 +15,11 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         min-height: 40vh;
+    }
+
+    &-titulo{
+        font-family: 'PT Sans', sans-serif;
+                font-size: 90px;
     }
 
     h6 {

@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -61,7 +62,8 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
     MatExpansionModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule
   ],
   providers: [
     {
